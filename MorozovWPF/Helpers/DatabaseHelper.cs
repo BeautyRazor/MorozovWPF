@@ -12,6 +12,14 @@ namespace MorozovWPF.Helpers {
         Auth
     }
     class DatabaseHelper {
+        public static bool Authorize(string userName, string password) {
+            if (userName == "Morozov" && password =="Kirill") {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
         
     }
 }

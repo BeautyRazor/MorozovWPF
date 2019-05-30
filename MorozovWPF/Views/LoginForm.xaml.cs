@@ -18,7 +18,7 @@ namespace MorozovWPF.Views
     /// <summary>
     /// Interaction logic for LoginForm.xaml
     /// </summary>
-    public partial class LoginForm : Page
+    public partial class LoginForm : UserControl
     {
         public LoginForm()
         {

@@ -18,7 +18,7 @@ namespace MorozovWPF.Views
     /// <summary>
     /// Interaction logic for MainWorkPlane.xaml
     /// </summary>
-    public partial class MainWorkPlane : Page
+    public partial class MainWorkPlane : UserControl
     {
         public MainWorkPlane()
         {

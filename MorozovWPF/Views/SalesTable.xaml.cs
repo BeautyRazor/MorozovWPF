@@ -18,7 +18,7 @@ namespace MorozovWPF.Views
     /// <summary>
     /// Interaction logic for SalesTable.xaml
     /// </summary>
-    public partial class SalesTable : Page
+    public partial class SalesTable : UserControl
     {
         public SalesTable()
         {

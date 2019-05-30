@@ -63,11 +63,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\AuthCommands.cs" />
+    <Compile Include="Commands\NavigationCommands.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converters\BooleanConverters.cs" />
     <Compile Include="Helpers\DatabaseHelper.cs" />
+    <Compile Include="Models\Application.cs" />
     <Compile Include="Models\Consumers.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\Services.cs" />
+    <Compile Include="ViewModels\LoginFormViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWorkPlaneViewModel.cs" />
+    <Compile Include="ViewModels\SalesTableViewModel.cs" />
+    <Compile Include="ViewModels\ServicesTableViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ConsumersTable.xaml.cs">
       <DependentUpon>ConsumersTable.xaml</DependentUpon>
@@ -145,7 +155,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\" />
+    <Resource Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\sales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\consumers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\services.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\header.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
