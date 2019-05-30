@@ -11,6 +11,7 @@ namespace MorozovWPF.Commands {
         public static RelayCommand GoToSalesCommand => new RelayCommand(
             actionParameter => {
                 Application.Instance.CurrentTable = new SalesTable();
+                Application.Instance.CurrentMessage = null;
             });
     }
 }
