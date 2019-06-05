@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MorozovWPF.ViewModels"
         xmlns:valueConverters="clr-namespace:MorozovWPF.Converters"
-        mc:Ignorable="d"
-        Title="MainWindow">
+        mc:Ignorable="d" 
+        Title="Morozov WPF" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
     <Grid Margin="0,0,0,0">
        
         <Grid.DataContext>

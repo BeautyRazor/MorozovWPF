@@ -6,12 +6,16 @@
       xmlns:local="clr-namespace:MorozovWPF.ViewModels"
       mc:Ignorable="d" Width="600" Height="300">
 
-    <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0,40,0,0">
+    <StackPanel Orientation="Vertical" Grid.Row="0" >
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/Resources/pic1.jpg" Stretch="Fill"></ImageBrush>
+        </StackPanel.Background>
         <StackPanel.DataContext>
             <local:LoginFormViewModel/>
         </StackPanel.DataContext>
-        <StackPanel Orientation="Horizontal" Margin="30,30,30,0">
+        <StackPanel Orientation="Horizontal" Margin="30,70,30,0">
             <Label
+                FontWeight="DemiBold"
                     x:Name="Login"
                     Content="Логин"
                     VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
@@ -19,16 +23,18 @@
                     HorizontalAlignment="Left" Width="111" Height="25" Margin="10,0,0,0" />
 
             <TextBox
+                Opacity="0.7"
                     x:Name="LoginBox"
                     Text="{Binding UserName}"
                     TextWrapping="Wrap"
                     VerticalContentAlignment="Center"
                     HorizontalAlignment="Center"
                     Width="273" Height="25"
-                    VerticalAlignment="Center"/>
+                    VerticalAlignment="Center" TextChanged="LoginBox_TextChanged"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="30,40">
             <Label
+                FontWeight="DemiBold"
                     x:Name="PassBoxDescription"
                     Content="Пароль"
                     VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
@@ -37,6 +43,7 @@
 
 
             <PasswordBox
+                Opacity="0.7"
                     x:Name="PasswordBox"
                     VerticalContentAlignment="Center"
                     Width="273" Height="25"

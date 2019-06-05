@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MorozovWPF.ViewModels"
+             xmlns:converter="clr-namespace:MorozovWPF.Converters"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+             MinHeight="450" MinWidth="800">
 
     <Grid>
         <Grid.DataContext>
@@ -16,24 +17,25 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <StackPanel>
-            <StackPanel Orientation="Vertical" Grid.Column="0">
-                <Button x:Name="SalesButton" Width="80" Height="80" Margin="0,0,0,10">
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+            <StackPanel Orientation="Vertical">
+                <Button x:Name="OrdersButton" Width="80" Height="80" Click="OrdersButton_OnClick" Margin="0,0,0,10">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/sales.png" Height="50" />
                         <Label Content="Заказы" HorizontalContentAlignment="Center" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="ConsumersButton" Width="80" Height="80" Margin="0,0,0,10">
+                <Button x:Name="ConsumersButton" Width="80" Height="80" Click="ConsumersButton_OnClick" Margin="0,0,0,10">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/consumers.png" Height="50" />
                         <Label Content="Клиенты" HorizontalContentAlignment="Center" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="ServicesButton" Width="80" Height="80" Margin="0,0,0,10">
+                <Button x:Name="ServicesButton" Width="80" Height="80" Click="ServicesButton_OnClick" Margin="0,0,0,10">
                     <StackPanel Orientation="Vertical">
                         <Image Source="/Resources/services.png" Height="50" />
                         <Label Content="Услуги" HorizontalContentAlignment="Center" />
@@ -41,8 +43,50 @@
                 </Button>
             </StackPanel>
         </StackPanel>
-        <Button Grid.Row="1" Content="Выход" Margin="5,5,5,5" />
+        <Button Grid.Row="2" Content="Выход" 
+                Command="{Binding SignOutCommand}"
+                Margin="5,5,5,5" />
 
-        <Frame x:Name="Table" Grid.Column="1" Grid.RowSpan="2"  Content="{Binding CurrentTable}" />
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" Margin="0,0,30,0">
+                <Image Source="/Resources/logo.png" Height="60"/>
+                <Label Content="Integrated Solutions Inc." 
+                       VerticalContentAlignment="Center" 
+                       FontSize="22" FontFamily="Stencil" />
+            </StackPanel>
+            <Button x:Name="AddButton" Width="80" Height="80" Margin="0,0,10,0"
+                    Command="{Binding AddCommand}"
+                    CommandParameter="{Binding ElementName=DataTable}">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Resources/add.png" Height="50" ></Image>
+                    <Label Content="Добавить" HorizontalContentAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+            <Button x:Name="EditButton" Width="80" Height="80" Margin="0,0,10,0"
+                    IsEnabled="{Binding SelectedItem, Converter={converter:NullToBoolConverter}}"        
+                    Command="{Binding EditCommand}"
+                    CommandParameter="{Binding ElementName=DataTable}">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Resources/edit.png" Height="50" ></Image>
+                    <Label Content="Изменить" HorizontalContentAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+            <Button x:Name="DeleteButton" Width="80" Height="80" 
+                    IsEnabled="{Binding SelectedItem, Converter={converter:NullToBoolConverter}}"
+                    Command="{Binding DeleteCommand}"
+                    CommandParameter="{Binding ElementName=DataTable, Path=SelectedItem}"
+                Margin="0,0,10,0">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/Resources/delete.png" Height="50" ></Image>
+                    <Label Content="Удалить" HorizontalContentAlignment="Center"></Label>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+
+        <DataGrid x:Name="DataTable" AutoGeneratingColumn="DataGrid_AutoGeneratingColumn" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"
+                  ItemsSource="{Binding OrdersList}"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"></DataGrid>
+
     </Grid>
 </UserControl>

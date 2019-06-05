@@ -13,15 +13,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MorozovWPF.Views
-{
+namespace MorozovWPF.Views {
     /// <summary>
-    /// Interaction logic for ServicesTable.xaml
+    /// Interaction logic for HelloScreen.xaml
     /// </summary>
-    public partial class ServicesTable : Page
-    {
-        public ServicesTable()
-        {
+    public partial class HelloScreen : UserControl {
+        public HelloScreen() {
             InitializeComponent();
         }
     }

@@ -11,7 +11,7 @@ namespace MorozovWPF.ViewModels {
             BindProperties(appModel, nameof(appModel.CurrentMessage), nameof(ErrorMessage));
             BindProperties(appModel, nameof(appModel.CurrentMessage), nameof(ErrorTabVisibility), it => it != null);
 
-            appModel.CurrentControl = new LoginForm();
+            appModel.CurrentControl = new HelloScreen();
         }
 
         public UserControl CurrentControl     { get; private set; }

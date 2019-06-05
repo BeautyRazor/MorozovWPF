@@ -4,19 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using MorozovWPF.Commands;
 using MorozovWPF.Models;
 using MorozovWPF.Views;
 
 namespace MorozovWPF.ViewModels {
     class MainWorkPlaneViewModel : ViewModelBase {
-        public MainWorkPlaneViewModel() {
-            Application appModel = Application.Instance;
+        public MainWorkPlaneViewModel() { }
 
-            BindProperties(appModel, nameof(appModel.CurrentTable), nameof(CurrentTable));
+        private object selectedItem;
 
-            appModel.CurrentTable = new SalesTable();
+        public object SelectedItem {
+            get => selectedItem;
+            set => SetProperty(ref selectedItem, value);
         }
-        public UserControl CurrentTable { get; private set; }
-        
+
+        public RelayCommand AddCommand     => FormCommands.OpenAddFormCommand;
+        public RelayCommand EditCommand    => FormCommands.OpenEditFormCommand;
+        public RelayCommand DeleteCommand  => CRUDCommands.DeleteCommand;
+        public RelayCommand SignOutCommand => AuthCommands.SignOutCommand;
     }
 }

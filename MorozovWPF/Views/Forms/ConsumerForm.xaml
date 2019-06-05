@@ -1,0 +1,94 @@
+﻿<Window x:Class="MorozovWPF.Views.Forms.ConsumerForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MorozovWPF.Views.Forms"
+        mc:Ignorable="d"
+        Title="ConsumerForm" Height="300" Width="500">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/BlackMetal.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0" Orientation="Vertical"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="30,30,30,0">
+                <Label
+                    Foreground="Azure"
+                    FontWeight="DemiBold"
+                    x:Name="Title"
+                    Content="Имя компании"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left" Width="130" Height="25" Margin="10,0,0,0" />
+
+                <TextBox
+                    Opacity="0.7"
+                    x:Name="TitleBox"
+                    Text="{Binding CurrentConsumer.Компания}"
+                    TextWrapping="Wrap"
+                    VerticalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="273" Height="25"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="30,30,30,0">
+                <Label
+                    Foreground="Azure"
+                    FontWeight="DemiBold"
+                    x:Name="Price"
+                    Content="Имя представителя"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left" Width="130" Height="25" Margin="10,0,0,0" />
+
+                <TextBox
+                    x:Name="PriceBox"
+                    Opacity="0.7"
+                    Text="{Binding CurrentConsumer.Name}"
+                    TextWrapping="Wrap"
+                    VerticalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="273" Height="25"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="30,30,30,0">
+                <Label
+                    Foreground="Azure"
+                    FontWeight="DemiBold"
+                    x:Name="Phone"
+                    Content="Телефон компании"
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Left"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left" Width="130" Height="25" Margin="10,0,0,0" />
+
+                <TextBox
+                    Opacity="0.7"
+                    x:Name="PhoneBox"
+                    Text="{Binding CurrentConsumer.Phone}"
+                    TextWrapping="Wrap"
+                    VerticalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Width="273" Height="25"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+
+        </StackPanel>
+
+        <Button x:Name="SaveButton"
+                Grid.Row="1" Content="Сохранить"
+                Command="{Binding SaveCommand}"
+                CommandParameter="{Binding CurrentConsumer}"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Height="25" Width="125" Margin="0,0,5,5" />
+    </Grid>
+</Window>

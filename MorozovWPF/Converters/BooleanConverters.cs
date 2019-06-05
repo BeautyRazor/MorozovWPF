@@ -85,4 +85,43 @@ namespace MorozovWPF.Converters {
 
         private static IndexToBoolConverter instance = null;
     }
+
+    public class NullToBoolConverter : MarkupExtension, IValueConverter {
+        public object Convert(object value, Type targetType, object parameter,
+            CultureInfo              culture) {
+            return value != null;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter,
+            CultureInfo                  culture) {
+            throw new NotImplementedException();
+        }
+
+        public override object ProvideValue(IServiceProvider serviceProvider) {
+            return instance ?? (instance = new NullToBoolConverter());
+        }
+
+        private static NullToBoolConverter instance = null;
+    }
+
+    public class NullToBoolReverseConverter : MarkupExtension, IValueConverter {
+        public object Convert(object value, Type targetType, object parameter,
+            CultureInfo              culture) {
+            return value == null;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter,
+            CultureInfo                  culture) {
+            throw new NotImplementedException();
+        }
+
+        public override object ProvideValue(IServiceProvider serviceProvider) {
+            return instance ?? (instance = new NullToBoolReverseConverter());
+        }
+
+        private static NullToBoolReverseConverter instance = null;
+    }
+
+
+
 }

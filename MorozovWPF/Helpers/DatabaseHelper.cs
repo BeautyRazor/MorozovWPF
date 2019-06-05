@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MorozovWPF.Models;
 
 namespace MorozovWPF.Helpers {
     public enum Tables {
         Consumers,
         Services,
-        Sales,
+        Orders,
         Auth
     }
     class DatabaseHelper {
@@ -19,6 +21,18 @@ namespace MorozovWPF.Helpers {
             else {
                 return false;
             }
+        }
+
+        public static List<T> GetFullData<T>(Tables table) {
+            throw new NotImplementedException();
+        }
+
+        public static bool AddRow<T>(Tables table, T data) {
+            throw new NotImplementedException();
+        }
+
+        public static bool UpdateRow<T>(Tables table, T data) {
+            throw new NotImplementedException();
         }
         
     }

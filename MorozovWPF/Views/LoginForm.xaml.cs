@@ -24,5 +24,9 @@ namespace MorozovWPF.Views
         {
             InitializeComponent();
         }
+
+        private void LoginBox_TextChanged(object sender, TextChangedEventArgs e) {
+
+        }
     }
 }

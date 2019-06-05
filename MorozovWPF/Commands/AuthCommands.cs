@@ -27,5 +27,10 @@ namespace MorozovWPF.Commands {
                 }
             }
         );
+
+        public static RelayCommand SignOutCommand => new RelayCommand(
+            actionParameter => {
+                app.CurrentControl = new LoginForm();
+            });
     }
 }

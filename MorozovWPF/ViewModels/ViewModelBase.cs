@@ -7,7 +7,7 @@ using System.Reflection;
 using Prism.Mvvm;
 
 namespace MorozovWPF.ViewModels {
-    class ViewModelBase : BindableBase {
+    public class ViewModelBase : BindableBase {
         private class PropertyData {
             public object DataObject { get; }
             public PropertyInfo Property { get; }

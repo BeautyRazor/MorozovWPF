@@ -6,16 +6,10 @@ namespace MorozovWPF.Models {
         private string      userName;
         private string      currentMessage;
         private UserControl currentControl;
-        private UserControl currentTable;
 
         public UserControl CurrentControl {
             get => currentControl;
             set => SetProperty(ref currentControl, value);
-        }
-
-        public UserControl CurrentTable {
-            get => currentTable;
-            set => SetProperty(ref currentTable, value);
         }
 
         public string UserName {
