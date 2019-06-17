@@ -31,7 +31,7 @@
                 <TextBox
                     Opacity="0.7"
                     x:Name="TitleBox"
-                    Text="{Binding CurrentConsumer.Компания}"
+                    Text="{Binding CurrentConsumer.Company}"
                     TextWrapping="Wrap"
                     VerticalContentAlignment="Center"
                     HorizontalAlignment="Center"

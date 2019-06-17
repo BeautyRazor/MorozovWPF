@@ -10,7 +10,12 @@ namespace MorozovWPF.ViewModels.Forms {
             }
             else {
                 CurrentService = new Service();
-                CurrentService.ID = Services.Instance.ServicesList.Max(it => it.ID) + 1;
+                if (Services.Instance.ServicesList.Any()) {
+                    CurrentService.ID = Services.Instance.ServicesList.Max(it => it.ID) + 1;
+                }
+                else {
+                    CurrentService.ID = 0;
+                }
             }
 
         }

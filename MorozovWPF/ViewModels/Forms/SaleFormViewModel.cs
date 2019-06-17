@@ -15,7 +15,12 @@ namespace MorozovWPF.ViewModels.Forms {
             }
             else {
                 CurrentOrder = new Order();
-                CurrentOrder.ID = Orders.Instance.OrdersList.Max(it => it.ID) + 1;
+                if (Orders.Instance.OrdersList.Any()) {
+                    CurrentOrder.ID = Orders.Instance.OrdersList.Max(it => it.ID) + 1;
+                }
+                else {
+                    CurrentOrder.ID = 0;
+                }
             }
 
             Services servicesModel = Services.Instance;

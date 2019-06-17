@@ -14,7 +14,12 @@ namespace MorozovWPF.ViewModels.Forms {
             }
             else {
                 CurrentConsumer = new Consumer();
-                CurrentConsumer.ID = Consumers.Instance.ConsumersList.Max(it => it.ID) + 1;
+                if (Consumers.Instance.ConsumersList.Any()) {
+                    CurrentConsumer.ID = Consumers.Instance.ConsumersList.Max(it => it.ID) + 1;
+                }
+                else {
+                    CurrentConsumer.ID = 0;
+                }
             }
         }
 
